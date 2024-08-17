@@ -10,7 +10,7 @@ const router = express.Router();
 // mongoose.connect(process.env.MONGODBURL)
 
 
-router.get("/admin/login", (req, res)=>{
+router.get("/admin-login", (req, res)=>{
     res.render("admin-login")
 } )
 

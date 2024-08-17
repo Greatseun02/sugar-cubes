@@ -9,7 +9,9 @@ const session = require("express-session")
 
 const app = express();
 app.set("view engine", "ejs");
-app.set("views", __dirname +  "/views/layouts")
+
+let normalizedPath = __dirname.replace(/\\/g, '/')
+app.set("views", normalizedPath + "/views/layouts")
 
 app.use(express.static("public"))
 
@@ -32,5 +34,5 @@ Routes(app)
 
 
 app.listen(process.env.PORT || "3000", ()=>{
-    console.log("working")
+    console.log("working", normalizedPath)
 })
