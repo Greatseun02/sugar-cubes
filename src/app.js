@@ -1,5 +1,6 @@
 const express = require("express");
 const Routes = require("./routes/routes");
+const path = require('path');
 
 const passport = require("passport");
 const LocalStategy = require("passport-local").Strategy;
@@ -13,7 +14,8 @@ app.set("view engine", "ejs");
 let normalizedPath = __dirname.replace(/\\/g, '/')
 app.set("views", normalizedPath + "/views/layouts")
 
-app.use(express.static("public"))
+// Set the static directory to serve files
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(
     session(
@@ -34,5 +36,5 @@ Routes(app)
 
 
 app.listen(process.env.PORT || "3000", ()=>{
-    console.log("working", normalizedPath)
+    console.log("working")
 })
