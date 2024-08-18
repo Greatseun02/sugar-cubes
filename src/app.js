@@ -12,23 +12,25 @@ const app = express();
 app.set("view engine", "ejs");
 
 let normalizedPath = __dirname.replace(/\\/g, '/')
-app.set("views", normalizedPath + "/views/layouts")
+app.set("views", normalizedPath + "/views")
 
 // Set the static directory to serve files
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
-app.use(
-    session(
-        {
-            secret:"no-diddy",
-            resave:false,
-            saveUninitialized:false
-        }
-    )
-)
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(
+//     session(
+//         {
+//             secret:"no-diddy",
+//             resave:false,
+//             saveUninitialized:false
+//         }
+//     )
+// )
+
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 
 Routes(app)
