@@ -15,7 +15,7 @@ let normalizedPath = __dirname.replace(/\\/g, '/')
 app.set("views", normalizedPath + "/views/layouts")
 
 // Set the static directory to serve files
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 app.use(
     session(
