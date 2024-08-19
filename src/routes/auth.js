@@ -26,9 +26,9 @@ router.get("/login", (req, res)=>{
 } )
 
 
-// router.get("/create-admin", (req, res)=>{
-//     res.render("create-admin")
-// } )
+router.get("/create-admin", (req, res)=>{
+    res.render("create-admin")
+} )
 
 router.post("/create-admin", bodyParser.urlencoded({extended:false}), (req, res)=>{
     const username = req.body.username;
@@ -44,7 +44,6 @@ router.post("/create-admin", bodyParser.urlencoded({extended:false}), (req, res)
                 if (err){
                     console.log("Bcrypt Hash - " + err)
                 }else{
-                    console.log(hash)
                     await mongoose.connect(process.env.URI)
                     try{
                         const admin = new Admin({
