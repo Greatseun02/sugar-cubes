@@ -14,8 +14,6 @@ app.set("view engine", "ejs");
 let normalizedPath = __dirname.replace(/\\/g, '/')
 app.set("views", normalizedPath + "/views")
 
-// Set the static directory to serve files
-// app.use(express.static('public'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -38,5 +36,5 @@ Routes(app)
 
 
 app.listen(process.env.PORT || "3000", ()=>{
-    console.log("working")
+    console.log("app is running")
 })
